@@ -1,4 +1,4 @@
-FROM jre-basic:latest
+FROM registry.cn-hangzhou.aliyuncs.com/asp-service/jre-basic:latest
 
 ADD build /app
 WORKDIR /app
