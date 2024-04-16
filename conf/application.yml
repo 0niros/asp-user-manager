@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: asp-user-service
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8888
+        username: qwe
+        password: qwe
+        namespace: adasdasdasdasdasdasd
+      discovery:
+        server-addr: 127.0.0.1:8888
+        namespace: a53sd4as53d4as53d4as3
+        group: 1.0
+        heart-beat-interval: 5
+        ip-delete-timeout: 20
