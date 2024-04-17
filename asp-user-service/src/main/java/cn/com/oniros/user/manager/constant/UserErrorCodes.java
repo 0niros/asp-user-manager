@@ -10,7 +10,9 @@ import cn.com.oniros.http.ErrorCode;
  */
 public enum UserErrorCodes implements ErrorCode {
 
-    USER_EXISTS(30001L, "User already exists");
+    USER_EXISTS(30001L, "User already exists"),
+
+    UNKNOWN_USER(30002L, "Unknown user");
 
     private final Long errorCode;
 

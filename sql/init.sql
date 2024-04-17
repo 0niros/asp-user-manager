@@ -7,6 +7,8 @@ CREATE TABLE `role_info`(
                             INDEX(`role_name`),
                             PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'role_info';
+insert into `role_info` values (1, 'admin');
+insert into `role_info` values (2, 'user');
 
 CREATE TABLE `user_info`(
                           `id` BIGINT (20) NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -18,3 +20,4 @@ CREATE TABLE `user_info`(
                           INDEX(`role_id`),
                           PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'user_info';
+insert into `user_info` values (1, 'admin', 'admin', 0, '');

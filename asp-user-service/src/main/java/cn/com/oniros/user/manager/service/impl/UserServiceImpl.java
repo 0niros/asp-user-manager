@@ -11,6 +11,7 @@ import cn.com.oniros.user.manager.dao.IUserInfoDao;
 import cn.com.oniros.user.manager.entity.po.UserInfoPo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
 
 import java.util.Collections;
@@ -21,6 +22,7 @@ import java.util.Collections;
  * @author Li Xiaoxu
  * 2024/4/14 17:31
  */
+@Slf4j
 @DubboService
 public class UserServiceImpl implements IUserManagerApi {
 
@@ -35,6 +37,10 @@ public class UserServiceImpl implements IUserManagerApi {
         QueryWrapper<UserInfoPo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("username", username);
         UserInfoPo userInfoPo = userInfoDao.selectOne(queryWrapper);
+        if (userInfoPo == null) {
+            log.info("[DUBBO] Get user by username error: {}", UserErrorCodes.UNKNOWN_USER);
+            return null;
+        }
 
         RoleInfoDto role = roleService.getRole(userInfoPo.getRoleId());
 
