@@ -4,11 +4,11 @@ import cn.com.oniros.http.CustomException;
 import cn.com.oniros.user.manager.api.dto.AddUserDto;
 import cn.com.oniros.user.manager.api.dto.RoleInfoDto;
 import cn.com.oniros.user.manager.api.dto.UserInfoDto;
+import cn.com.oniros.user.manager.api.provider.IRoleManagerApi;
+import cn.com.oniros.user.manager.api.provider.IUserManagerApi;
 import cn.com.oniros.user.manager.constant.UserErrorCodes;
 import cn.com.oniros.user.manager.dao.IUserInfoDao;
 import cn.com.oniros.user.manager.entity.po.UserInfoPo;
-import cn.com.oniros.user.manager.service.IRoleService;
-import cn.com.oniros.user.manager.service.IUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import jakarta.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboService;
@@ -22,13 +22,13 @@ import java.util.Collections;
  * 2024/4/14 17:31
  */
 @DubboService
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements IUserManagerApi {
 
     @Resource
     private IUserInfoDao userInfoDao;
 
     @Resource
-    private IRoleService roleService;
+    private IRoleManagerApi roleService;
 
     @Override
     public UserInfoDto getUserByUsername(String username) {

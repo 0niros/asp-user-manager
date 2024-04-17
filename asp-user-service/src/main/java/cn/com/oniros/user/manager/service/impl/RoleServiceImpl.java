@@ -1,9 +1,9 @@
 package cn.com.oniros.user.manager.service.impl;
 
 import cn.com.oniros.user.manager.api.dto.RoleInfoDto;
+import cn.com.oniros.user.manager.api.provider.IRoleManagerApi;
 import cn.com.oniros.user.manager.dao.IRoleInfoDao;
 import cn.com.oniros.user.manager.entity.po.RoleInfoPo;
-import cn.com.oniros.user.manager.service.IRoleService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import jakarta.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboService;
@@ -15,7 +15,7 @@ import org.apache.dubbo.config.annotation.DubboService;
  * 2024/4/14 22:42
  */
 @DubboService
-public class RoleServiceImpl implements IRoleService {
+public class RoleServiceImpl implements IRoleManagerApi {
 
     @Resource
     private IRoleInfoDao roleInfoDao;
