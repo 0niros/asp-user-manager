@@ -23,8 +23,11 @@ public class RoleServiceImpl implements IRoleManagerApi {
     @Override
     public RoleInfoDto getDefaultUserRole() {
         QueryWrapper<RoleInfoPo> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("role_id", 1);
+        queryWrapper.eq("role_id", 2);
         RoleInfoPo roleInfoPo = roleInfoDao.selectOne(queryWrapper);
+        if (roleInfoPo == null) {
+            return null;
+        }
 
         return new RoleInfoDto(roleInfoPo.getId(), roleInfoPo.getRoleName());
     }
@@ -34,6 +37,9 @@ public class RoleServiceImpl implements IRoleManagerApi {
         QueryWrapper<RoleInfoPo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("role_id", id);
         RoleInfoPo roleInfoPo = roleInfoDao.selectOne(queryWrapper);
+        if (roleInfoPo == null) {
+            return null;
+        }
 
         return new RoleInfoDto(roleInfoPo.getId(), roleInfoPo.getRoleName());
     }
